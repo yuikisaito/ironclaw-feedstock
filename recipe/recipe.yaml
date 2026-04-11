@@ -19,6 +19,9 @@ build:
       - if: win
         then:
           - set CARGO_HOME=C:\.cargo
+      - if: linux and aarch64
+        then:
+          - export CARGO_BUILD_JOBS=1
       - if: unix
         then:
           - cargo auditable install --no-track --locked --root $PREFIX --path .
