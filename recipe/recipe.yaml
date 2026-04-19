@@ -22,6 +22,7 @@ build:
       - if: linux and aarch64
         then:
           - export CARGO_BUILD_JOBS=1
+          - export CARGO_PROFILE_RELEASE_LTO=thin
       - if: unix
         then:
           - cargo auditable install --no-track --locked --root $PREFIX --path .
